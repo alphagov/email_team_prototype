@@ -37,8 +37,8 @@
           <li class="subscription" data-subscription="{{ subscription | dump }}" data-frequency="{{frequency}}">
             <h2 class="heading-medium">{{subscription.title}}</h2>
             <p>Received {{frequency}}</p>
-            <a href="/edit?id={{subscription.id}}" class="button edit-subscription">Edit subscription</a>
-            <button class="button unsubscribe">Unsubscribe</button>
+            <a href="/edit?id={{subscription.id}}" class="edit-subscription">Edit subscription</a>
+            <a href="/confirm-unsubscribe?id={{subscription.id}}" class="unsubscribe">Unsubscribe</a>
           </li>
         {% endfor %}
       </ol>

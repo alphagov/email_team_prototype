@@ -12,7 +12,6 @@ var Manage = function () {
     $(document).on("click", ".save-address", saveAddress);
     $(document).on("click", ".undo-address", undoAddress);
 
-    $(document).on("click", ".unsubscribe", unsubscribe);
     $(document).on("click", ".undo-unsubscribe", undoUnsubscribe);
   };
 
