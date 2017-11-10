@@ -83,6 +83,11 @@ router.get('/manage-2', function (req, res) {
   res.render('manage-2');
 });
 
+router.get('/confirm-unsubscribe', function (req, res) {
+  var subscription = findSubscription(req);
+  res.render('confirm-unsubscribe', subscription);
+});
+
 router.get('/edit', function (req, res) {
   var subscription = findSubscription(req);
   res.render('edit', subscription);
