@@ -8,6 +8,7 @@
 
 {% set address = data.address | default('test@example.com') %}
 {% set subscriptions = data.subscriptions | default([]) %}
+{% set weekly_digest = data.weekly_digest | default('separately') %}
 
 <main id="content" role="main" class="manage">
   <div class="grid-row">
@@ -44,11 +45,40 @@
 
       <h2 class="heading-large">Account settings</h2>
 
-      <h2 class="heading-medium">Change your digest settings</h2>
+      <form method="get" action="/manage">
+        <input type="hidden" name="saved" value="true">
 
-      <p>
-        You can get updates for each of your subscriptions immediately, or as daily or weekly digests.
-      </p>
+				<div class="form-group">
+					<fieldset>
+						<legend>
+              <h2 class="heading-medium">Change your digest settings</h2>
+						</legend>
+						<div class="multiple-choice">
+							<input
+								id="weekly-separately"
+								type="radio"
+								name="weekly_digest"
+                {% if weekly_digest === "separately" %}
+                  checked="checked"
+                {% endif %}
+								value="separately">
+							<label for="weekly-separately">Separate emails (by topic)</label>
+						</div>
+						<div class="multiple-choice">
+							<input
+								id="weekly-combined"
+								type="radio"
+								name="weekly_digest"
+                {% if weekly_digest === "combined" %}
+                  checked="checked"
+                {% endif %}
+								value="combined">
+							<label for="weekly-combined">One combined email</label>
+						</div>
+					</fieldset>
+          <input type="submit" class="button done" value="Save settings"></input>
+				</div>
+			</form>
 
       <form action="/manage">
         <input type="hidden" name="saved" value="true">
@@ -61,13 +91,10 @@
               </h2>
             </legend>
 
-            <div class="panel panel-border-narrow">
-              <label class="form-label" for="contact-email">Email address</label>
-              <input class="form-control" type="text" id="address" name="address">
-            </div>
-
-            <input class="button" type="submit" value="Update email address">
+            <label class="form-label" for="contact-email">Email address</label>
+            <input class="form-control" type="text" id="address" name="address">
           </fieldset>
+          <input class="button done" type="submit" value="Update email address">
         </div>
       </form>
     </div>
