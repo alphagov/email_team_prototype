@@ -146,7 +146,7 @@
            </div>
          </fieldset>
 
-         <fieldset>
+         <fieldset class="panel">
            <p class="form-block"><strong>or only get notifications for specific areas of it</strong></p>
 
            <div class="multiple-choice" data-target="daily">
@@ -193,7 +193,8 @@
       </script>
 
       <div class="form-group">
-         <button onclick="window.location.href='../02.frequency/'+varVersion+'.html?topic='+varTopic+'&topicparent='+varTopicParent+'&version='+varVersion+'&email='+varEmail+'&refined=true&freq='+varFreq" id="next" class="button">Next</button>
+        <button onclick="window.location.href='/manage?saved=true'" id="next" class="button">Confirm</button>
+        <button onclick="window.location.href='/manage'" style="background: #df3034" id="next" class="button">Back</button>
       </div>
     </main>
 

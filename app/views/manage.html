@@ -36,9 +36,12 @@
 
           <li class="subscription" data-subscription="{{ subscription | dump }}" data-frequency="{{frequency}}">
             <h2 class="heading-medium">{{subscription.title}}</h2>
-            <p>Received {{frequency}}</p>
-            <a href="/edit?id={{subscription.id}}" class="edit-subscription">Edit subscription</a>
-            <a href="/confirm-unsubscribe?id={{subscription.id}}" class="unsubscribe">Unsubscribe</a>
+            <p>Received {{frequency}}.</p>
+            <p>
+              <a href="/edit?id={{subscription.id}}" class="edit-subscription">Change frequency</a> &nbsp;
+              <a href="{{ subscription.url.replace('.html', '-refine.html') }}&freq={{subscription.frequency}}" class="edit-subscription">Refine topic</a> &nbsp;
+              <a href="/confirm-unsubscribe?id={{subscription.id}}" class="unsubscribe">Unsubscribe</a>
+            </p>
           </li>
         {% endfor %}
       </ol>
