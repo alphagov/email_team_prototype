@@ -8,10 +8,7 @@ var Manage = function () {
   // private
 
   var bindHandlers = function () {
-    $(document).on("click", ".change-address", changeAddress);
-    $(document).on("input", ".address", addressChanged);
     $(document).on("click", ".cancel-address", cancelAddress);
-    $(document).on("keyup", ".address", addressKeypress);
     $(document).on("click", ".save-address", saveAddress);
     $(document).on("click", ".undo-address", undoAddress);
 
@@ -20,10 +17,7 @@ var Manage = function () {
   };
 
   var changeAddress = function (element) {
-    self.originalEmail = $(".address").val();
-    $(".address").prop("disabled", false);
-    $(".address").select();
-    $(".cancel-address").show();
+    $('#change-email').removeClass("js-hidden");
   };
 
   var saveAddress = function (element) {
@@ -45,14 +39,6 @@ var Manage = function () {
   var addressChanged = function (element) {
     if ($(".change-address").length !== 0) {
       self.changeAddress = $(".change-address").replaceWith(saveAddressElement);
-    }
-  };
-
-  var addressKeypress = function (event) {
-    if (event.keyCode === 13) {
-      saveAddress();
-      event.preventDefault();
-      return false;
     }
   };
 

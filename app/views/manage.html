@@ -24,20 +24,12 @@
       </script>
 
       <span class="lede">
-        Viewing subscriptions for
-        <input type="text" value="{{ address }}" class="address" disabled="disabled"></input>
+        Viewing subscriptions for {{ address }}
       </span>
-      <a class="cancel-address" href="javascript:void(0);">Cancel</a>
 
-      <button class="button change-address">Change address</button>
-      <span class="error"></span>
-
-      <p>
-        You can get updates for each of your subscriptions immediately, or as daily or weekly digests.
-      </p>
+      <h2 class="heading-large">Your subscriptions</h2>
 
       <ol class="subscriptions">
-			<form method="get" action="/manage-2">
         {% for subscription in subscriptions %}
           {% set frequency = data[subscription.id + "-frequency"] | default('immediately') %}
 
@@ -48,9 +40,36 @@
             <button class="button unsubscribe">Unsubscribe</button>
           </li>
         {% endfor %}
-        <input type="submit" class="button next" value="Next"></input>
-			</form>
       </ol>
+
+      <h2 class="heading-large">Account settings</h2>
+
+      <h2 class="heading-medium">Change your digest settings</h2>
+
+      <p>
+        You can get updates for each of your subscriptions immediately, or as daily or weekly digests.
+      </p>
+
+      <form action="/manage">
+        <input type="hidden" name="saved" value="true">
+
+        <div class="form-group">
+          <fieldset>
+            <legend>
+              <h2 class="heading-medium">
+                Change your email address
+              </h2>
+            </legend>
+
+            <div class="panel panel-border-narrow">
+              <label class="form-label" for="contact-email">Email address</label>
+              <input class="form-control" type="text" id="address" name="address">
+            </div>
+
+            <input class="button" type="submit" value="Update email address">
+          </fieldset>
+        </div>
+      </form>
     </div>
   </div>
   <a class="back-to-home" href="/">Back to homepage</a>
