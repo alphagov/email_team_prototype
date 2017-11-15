@@ -214,7 +214,7 @@ h1 {
 }
 
 .multiple-choice [type=checkbox] + label {
-   margin-top: -9px;
+   /*margin-top: -9px;*/
 }
 
 label p.math-detail {
