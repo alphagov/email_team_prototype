@@ -143,7 +143,7 @@ a.button{
 
       <div class="multiple-choice not-checked" data-target="daily">
         <input id="example-daily" type="radio" name="radio-frequency-group" value="daily" ng-model="frequencySelected" ng-click="addFrequencyParameter('daily')">
-        <label for="example-daily">Once a day</label>
+        <label for="example-daily">One daily email (if something changes)</label>
       </div>
       <div class="panel panel-border-narrow" id="daily" ng-show="frequencySelected == 'daily'">
         <p>
@@ -164,7 +164,7 @@ a.button{
 
       <div class="multiple-choice not-checked" data-target="weekly">
         <input id="example-weekly" type="radio" name="radio-frequency-group" value="weekly" ng-model="frequencySelected" ng-click="addFrequencyParameter('weekly')">
-        <label for="example-weekly">Once a week</label>
+        <label for="example-weekly">One weekly email (if something changes)</label>
       </div>
       <div class="panel panel-border-narrow" id="weekly" ng-show="frequencySelected == 'weekly'">
         <p>

@@ -151,7 +151,7 @@
 
 
     <main>
-      <h1>How often do you want to get updates for this topic?</h1>
+      <h1>How often do you want to get updates?</h1>
       <div class="form-group" id="topic-count">
          <p>There are about 2 updates or new documents published to the <script>document.write(varTopic)</script> topic each week. If that's too many updates, you can <a onclick="window.location.href='../03.refine/'+varVersion+'.html?topic='+varTopic+'&topicparent='+varTopicParent+'&version='+varVersion+'&email='+varEmail" href="#">change your selection.</a></p>
         </div>
@@ -160,17 +160,17 @@
          <fieldset>
            <div class="multiple-choice not-checked" data-target="immediately">
              <input id="example-immediately" type="radio" name="radio-frequency-group" value="Yes">
-             <label for="example-immediately">Immediately - get updates as soon as they're published</label>
+             <label for="example-immediately">As soon as something changes</label>
            </div>
            <div class="panel panel-border-narrow js-hidden" id="immediately">
              <p><strong>You'll get an email about every 3 days</strong></p>
            </div>
 
-           <p class="form-block">or you can group all your updates together and get them:</p>
+           
 
            <div class="multiple-choice not-checked" data-target="daily">
              <input id="example-daily" type="radio" name="radio-frequency-group" value="No">
-             <label for="example-daily">Once a day</label>
+             <label for="example-daily">One daily email (if something changes)</label>
            </div>
            <div class="panel panel-border-narrow js-hidden" id="daily">
              <p><strong>You'll get an email about every 3 days</strong></p>
@@ -178,7 +178,7 @@
 
            <div class="multiple-choice not-checked" data-target="weekly">
              <input id="example-weekly" type="radio" name="radio-frequency-group" value="No">
-             <label for="example-weekly">Once a week</label>
+             <label for="example-weekly">One weekly email (if something changes)</label>
            </div>
            <div class="panel panel-border-narrow js-hidden" id="weekly">
              <p><strong>You’ll get 1 email a week containing about 2 links</strong></p>
@@ -221,6 +221,7 @@
       </script>
       <div class="form-group">
          <button onclick="buttonURL()" id="next" class="button">Next</button>
+         <button onclick="window.history.back();" style="background: #df3034" class="button">Back</button>
       </div>
     </main>
 
