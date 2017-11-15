@@ -142,14 +142,14 @@
       </p>
 
       <p style='font-size: 19px;'>
-        You'll get these
+        You'll get
         <script>
           if (varFreq === "daily") {
-            document.write("once a day.");
+            document.write("one daily email (if something changes).");
           } else if (varFreq === "weekly") {
-            document.write("once a week.");
+            document.write("one weekly email (if something changes).");
           } else {
-            document.write("as soon as changes are published.");
+            document.write("an email as soon as something changes.");
           }
         </script>
       </p>
@@ -170,6 +170,7 @@
 
       <div class="form-group">
          <button onclick="buttonURL()" id="next" class="button">Subscribe</button>
+         <button onclick="window.history.back();" style="background: #df3034" class="button">Back</button>
          <p><br>See our <a href="https://www.gov.uk/help/privacy-policy">privacy policy</a></p>
       </div>
     </main>

@@ -28,25 +28,27 @@
         Viewing subscriptions for {{ address }}
       </span>
 
-      <h2 class="heading-large">Your subscriptions</h2>
-
       <ol class="subscriptions">
         {% for subscription in subscriptions %}
           {% set frequency = data[subscription.id + "-frequency"] | default('immediately') %}
 
-          <li class="subscription" data-subscription="{{ subscription | dump }}" data-frequency="{{frequency}}">
+          <li class="subscription panel" data-subscription="{{ subscription | dump }}" data-frequency="{{frequency}}">
             <h2 class="heading-medium">{{subscription.title}}</h2>
-            <p>Received {{frequency}}.</p>
+            {% if frequency == "immediately" %}
+              <p>You have subscribed to be updated {{frequency}}.</p>
+            {% else %}
+              <p>You have subscribed to {{frequency}} updates.</p>
+            {% endif %}
             <p>
-              <a href="/edit?id={{subscription.id}}" class="edit-subscription">Change frequency</a> &nbsp;
-              <a href="{{ subscription.url.replace('.html', '-refine.html') }}&freq={{subscription.frequency}}" class="edit-subscription">Refine topic</a> &nbsp;
+              <a href="/edit?id={{subscription.id}}" class="edit-subscription">Change how often you get updates</a><br />
+              <a href="{{ subscription.url.replace('.html', '-refine.html') }}&freq={{subscription.frequency}}" class="edit-subscription">Change what you get updates about</a><br />
               <a href="/confirm-unsubscribe?id={{subscription.id}}" class="unsubscribe">Unsubscribe</a>
             </p>
           </li>
         {% endfor %}
       </ol>
 
-      <h2 class="heading-large">Account settings</h2>
+      <!-- <h2 class="heading-large">Account settings</h2>
 
       <form method="get" action="/manage">
         <input type="hidden" name="saved" value="true">
@@ -99,7 +101,7 @@
           </fieldset>
           <input class="button done" type="submit" value="Update email address">
         </div>
-      </form>
+      </form> -->
     </div>
   </div>
   <a class="back-to-home" href="/">Back to homepage</a>

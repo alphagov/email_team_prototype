@@ -119,9 +119,9 @@
       if($rootScope.frequency == "immediately")
         $scope.frequencyText = "as soon as changes are published";
       if($rootScope.frequency == "daily")
-        $scope.frequencyText = "once a day";
+        $scope.frequencyText = "One daily email (if something changes)";
       if($rootScope.frequency == "weekly")
-        $scope.frequencyText = "once a week";
+        $scope.frequencyText = "One weekly email (if something changes)";
     }
     $scope.updateFrequencyText();
   }]);
