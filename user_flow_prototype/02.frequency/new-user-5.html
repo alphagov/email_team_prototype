@@ -137,20 +137,15 @@
              <label for="example-immediately">As soon as they happen</label>
            </div>
 
-
-
            <div class="multiple-choice not-checked" data-target="daily">
              <input id="example-daily" type="radio" name="radio-frequency-group" value="No">
              <label for="example-daily">No more than once a day</label>
            </div>
 
-
            <div class="multiple-choice not-checked" data-target="weekly">
              <input id="example-weekly" type="radio" name="radio-frequency-group" value="No">
              <label for="example-weekly">No more than once a week</label>
            </div>
-
-
          </fieldset>
       </div>
 
@@ -182,7 +177,7 @@
       <script>
         function buttonURL(){
           var varFreq= $(".multiple-choice.checked").data("target");
-          var varButtonURL = '../01.ask-for-email/'+varVersion+'.html?topic='+varTopic+'&topicparent='+varTopicParent+'&version='+varVersion+'&email='+varEmail+'&freq='+varFreq;
+          var varButtonURL = '../01.ask-for-email/'+varVersion+'.html?topic='+varTopic+'&freq='+varFreq+'&version='+varVersion;
           window.location.href = varButtonURL;
         };
       </script>
