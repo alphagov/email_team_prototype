@@ -83,6 +83,11 @@ router.get('/manage-2', function (req, res) {
   res.render('manage-2');
 });
 
+router.get('/email-change-2', function (req, res) {
+  setEmailAddress(req);
+  res.redirect('/manage');
+});
+
 router.get('/confirm-unsubscribe', function (req, res) {
   var subscription = findSubscription(req);
   res.render('confirm-unsubscribe', subscription);
@@ -102,7 +107,7 @@ router.get('/create', function (req, res) {
 
 router.get('/unsubscribe', function (req, res) {
   deleteSubscription(req);
-  res.redirect('/manage');
+  res.redirect('/unsubscribed');
 });
 
 module.exports = router;
