@@ -25,13 +25,13 @@
       </script>
 
       <h2 class="heading-large">Subscriptions for {{ address }}</h2>
-      <p style="margin-top: -1em; margin-bottom: 2em;"><a href="change-email-2">Change email address</a></p>
+      <p style="margin-top: -1em; margin-bottom: 1em;"><a href="change-email-2">Change email address</a></p>
 
-      <ol class="subscriptions">
+      <div style="margin-top: 2em;" data-subscription="{{ subscription | dump }}" data-frequency="{{frequency}}">
         {% for subscription in subscriptions %}
           {% set frequency = data[subscription.id + "-frequency"] | default('immediately') %}
           <h3 class="heading-small">{{subscription.title}}</h3>
-          <li class="subscription panel" style="margin-top: 0; margin-bottom: 2em;" data-subscription="{{ subscription | dump }}" data-frequency="{{frequency}}">
+
             {% if frequency == "immediately" %}
               <p>You chose to get updates {{frequency}}.<br/>
             {% else %}
@@ -39,11 +39,10 @@
             {% endif %}
 
               <a href="/edit?id={{subscription.id}}" class="edit-subscription">Change how often you get updates</a></p>
-              <p><a href="/confirm-unsubscribe?id={{subscription.id}}" class="unsubscribe">Unsubscribe</a></p>
+              <p style="padding-bottom:1em;"><a href="/confirm-unsubscribe?id={{subscription.id}}" class="unsubscribe">Unsubscribe</a></p>
 
-          </li>
         {% endfor %}
-      </ol>
+      </div>
 
 
       <!-- <h2 class="heading-large">Account settings</h2>
