@@ -18,18 +18,13 @@
         Change your email address
       </h1>
 
-      <script>
-        if (window.location.href.indexOf("saved") !== -1) {
-          document.write('<p class="saved-successfully">Your email change has been saved.</p>');
-        }
-      </script>
+      <p class="bold">Current email address</h2>
+      <p>{{ address }}</p>
 
-      <h2 class="heading-large">Current email address</h2>
-      <p class="">{{ address }}</p>
 
-      <h2 class="heading-large">New email address</h2>
-      <div class="form-group">
-         <input class="form-control" id="email-f1" type="email" name="full-name-f1">
+      <div style="padding-top: 1em;" class="form-group">
+        <p class="form-label-bold">New email address</p>
+        <input class="form-control" label="New email address" id="email-f1" type="email" name="full-name-f1">
       </div>
 
       <script>
@@ -43,6 +38,7 @@
 
       <div class="form-group">
          <button onclick="buttonURL()" id="next" class="button">Save</button>
+         <p style="padding-top: 1em;">or <a href="/manage">cancel</a></p>
       </div>
 
       <!-- <h2 class="heading-large">Account settings</h2>
