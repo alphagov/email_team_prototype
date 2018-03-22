@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Manage your subscriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main" class="manage">
+  <a onclick="window.history.back();" href="javascript:void(0)" style="display: inline-block; padding-top: 1rem;">◀ Back</a>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">
+        Are you sure you want to unsubscribe from everything?
+      </h1>
+
+      <p>You won't get any more automated emails from GOV.UK.</p>
+
+      <form action="/unsubscribed-everything" class="subscription">
+        <input type="hidden" name="saved" value="true">
+        <input type="hidden" name="id" value="{{ id }}" />
+
+        <input type="submit" class="button done" value="Unsubscribe"></input>
+      </form>
+      <p style="padding-top: 1em;">or <a href="/manage">cancel</a></p>
+    </div>
+  </div>
+  <a class="back-to-home" href="/">Back to homepage</a>
+</main>
+
+{% endblock %}
